@@ -1,0 +1,16 @@
+<div class="widget mb-40">
+  <div class="widget-title text-center">
+    <h4>标签云</h4>
+    </div>
+      {% for tag in tag_list %}
+        <div class="widget__tag">
+          <ul>
+            <li><a href="{% url 'blog:tag' tag.pk %}">{{ tag.name }} ({{ tag.num_posts }})</a></li>
+          </ul>
+        </div>
+      {% empty %}
+        暂无标签！
+      {% endfor %}
+    </div>
+  </div>
+</div>

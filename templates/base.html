@@ -1,0 +1,156 @@
+{% load static %}
+{% load blog_extras %}
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+  <head>
+    <title>Renewal, Grit, Innovation</title>
+
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Place favicon.ico in the root Internist, General Practitonery -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/github.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/magnific-popup.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/dripicons.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/dripicons.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/default.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/meanmenu.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/responsive.css' %}">
+  </head>
+      
+  <body>
+    <!-- header -->
+    <header class="header-area in-header">    
+  
+      <div id="header-sticky" class="menu-area menu-area2">
+        <div class="container">
+          <div class="second-menu">
+            <div class="row align-items-center">
+              <div class="col-xl-2 col-lg-2">
+                <div class="logo2">
+                  <a href="{% url 'blog:index' %}"><img src="{% static 'blog/img/logo/logo_150_LY.png' %}" alt="logo"></a>
+                </div>
+              </div>
+              <div class="col-xl-10 col-lg-10">                               
+                <div class="main-menu text-right pr-15">
+                  <nav id="mobile-menu">
+                    <ul>
+                      <li><a href="#">首页</a></li>
+                      <li><a href="#">博客</a></li>
+                      <li><a href="creating.html">创造</a></li>
+                      <li><a href="#">关于</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>    
+              <div class="col-12">
+                <div class="mobile-menu"></div>
+              </div>        
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- header-end -->
+
+    <!-- breadcrumb-area -->
+    {% block breadcrumb %}
+    {% endblock breadcrumb %}
+    <!-- breadcrumb-area-end -->
+
+    <!-- inner-blog -->
+    <section class="inner-blog pt-100 pb-50">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <!-- inner-blog-main -->
+            <div>
+              <main>
+                {% block main %}
+                {% endblock main %}
+              </main>
+            </div>
+            <!-- inner-blog-main-end -->
+          </div>
+        
+          <!-- aside -->
+          <div class="col-lg-4">
+            <aside>
+              {% block toc %}
+              {% endblock toc %}
+
+              <div class="widget mb-40">
+                <div class="widget-title text-center">
+                  <h4>关注我</h4>
+                </div>
+                <div class="widget-social text-center">
+                  <img src="{% static 'blog/img/blog/aside/wechat_code_250Y.png' %}" alt="WeChat" />
+                </div>
+              </div>
+
+              {% show_categories %}
+              {% show_random_posts %}
+              {% show_tags %}
+            </aside>
+          </div>
+          <!-- aside-end -->
+          
+        </div>
+      </div>
+    </section>
+    <!-- inner-blog-end -->
+
+    {% comment %} <!-- footer -->style="background-image:url({% static 'blog/img/testimonial/test-bg2.jpg' %})" {% endcomment %}
+    <footer class="footer-bg footer-p pt-50" >
+      <div class="footer-top pb-50">
+        <div class="container">
+          <div class="row align-items-center text-center">
+            <div class="col-12">                  
+              Copyright &copy; 2021. Grit All rights reserved.
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer-end -->
+
+    <!-- JS here -->
+    <script src="{% static 'blog/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+    <script src="{% static 'blog/js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'blog/js/popper.min.js' %}"></script>
+    <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'blog/js/one-page-nav-min.js' %}"></script>
+    <script src="{% static 'blog/js/jquery.meanmenu.min.js' %}"></script>
+    <script src="{% static 'blog/js/slick.min.js' %}"></script>
+    <script src="{% static 'blog/js/ajax-form.js' %}"></script>
+    <script src="{% static 'blog/js/paroller.js' %}"></script>
+    <script src="{% static 'blog/js/wow.min.js' %}"></script>
+    <script src="{% static 'blog/js/js_isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'blog/js/imagesloaded.min.js' %}"></script>
+    <script src="{% static 'blog/js/parallax.min.js' %}"></script>
+    <script src="{% static 'blog/js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'blog/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'blog/js/jquery.scrollUp.min.js' %}"></script>
+    <script src="{% static 'blog/js/parallax-scroll.js' %}"></script>
+    <script src="{% static 'blog/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'blog/js/element-in-view.js' %}"></script>
+    <script src="{% static 'blog/js/main.js' %}"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://cdn.bootcss.com/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+      hljs.initLineNumbersOnLoad();
+    </script>
+  </body>
+</html>

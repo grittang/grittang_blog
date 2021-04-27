@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block breadcrumb %}
+  <section class="breadcrumb-area d-flex align-items-center") style="background-image:url({% static 'blog/img/testimonial/test-bg-blank.jpg' %})">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12 col-lg-8">
+          <div class="breadcrumb-wrap text-center">
+            <div class="breadcrumb-title mb-30">
+              <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>                                   
+            </div>
+            <div class="meta-info">
+              <ul>
+                <li><i class="far fa-calendar-alt"></i>  {{ post.created_time.date }}</li>
+                <li><i class="far fa-user"></i>by {{ post.author }}</li>
+                <li><i class="far fa-stopwatch"></i>{{ post.elapsed_time }}</li>
+                <li><i class="far fa-eye"></i>{{ post.views }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock breadcrumb %}
+
+{% block main %}
+  <div class="blog-details-wrap">
+    <div class="bsingle__post-thumb mb-30">
+      <img src="" alt="">
+    </div>
+
+    <div class="details__content pb-50">
+      {{ post.body|safe }}
+      <div class="row">
+        <div class="col-xl-6 col-md-7">
+          <div class="post__tag">
+            {% if post.tags.all %}
+              <h5>相关标签：</h5>
+              <ul>
+                {% for tag in post.tags.all %}
+                  <li><a href="{% url 'blog:tag' tag.pk %}">{{ tag.name }}</a></li>
+                {% empty %}
+                  <div class="no-tag">暂无标签</div>
+                {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="posts_navigation pt-35 pb-35">
+      <div class="row align-items-center">
+          <div class="col-xl-4 col-md-5">
+              <div class="prev-link">
+                  <span>上篇</span>
+                  <h4><a href="#">Tips on Minimalist</a></h4>
+              </div>
+          </div>
+          <div class="col-xl-4 col-md-2 text-left text-md-center">
+              <a href="blog.html" class="blog-filter"><img src="img/icon/c_d01.png" alt=""></a>
+          </div>
+          <div class="col-xl-4 col-md-5">
+              <div class="next-link text-left text-md-right">
+                  <span>下篇</span>
+                  <h4><a href="#">Less Is More</a></h4>
+              </div>
+          </div>
+      </div>
+    </div>
+{% endblock main %}
+
+{% block toc %}
+  {% if post.toc %}
+    <div class="widget mb-40 content-navigation">
+      <div class="widget-title text-center">
+        <h4>文章目录</h4>
+      </div>
+      <div class="toc">
+        {{ post.toc|safe }} 
+      </div>
+    </div>
+  {% endif %}
+{% endblock toc %}

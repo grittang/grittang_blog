@@ -1,0 +1,22 @@
+<div class="widget mb-40">
+  <div class="widget-title text-center">
+    <h4>随机文章</h4>
+  </div>
+  <div class="widget__post">
+    <ul>
+      {% for post in random_post_list %}
+        <li>
+            <div class="widget__post-thumb">
+                <img src="{{ post.avatar.url_80x60 }}" alt="">
+            </div>
+            <div class="widget__post-content">
+                <h6><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h6>
+                <span><i class="far fa-clock"></i>{{ post.created_time.date }}</span>
+            </div>
+        </li>
+      {% empty %}
+        No post yet.
+      {% endfor %}
+    </ul>
+  </div>
+</div>
