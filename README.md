@@ -1,0 +1,2 @@
+# grittang.com
+my blog
